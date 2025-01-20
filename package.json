@@ -1,0 +1,33 @@
+{
+  "name": "@supercat1337/dictionary",
+  "version": "1.0.0",
+  "description": "A simple data structure that maps keys to arrays of values, enabling efficient storage and retrieval of multiple values per key.",
+  "main": "index.js",
+  "scripts": {
+    "test": "c8 ava",
+    "preinstall": "npm i -g esbuild && npm i -g rollup",
+    "build": "npm run remove_type_files && npm run build_esm && npm run build_esm_min && npm run create_types",
+    "build_esm": "rollup ./src/index.js --file ./dist/dictionary.esm.js --format es",
+    "build_esm_min": "esbuild --minify --bundle --platform=neutral --legal-comments=none ./src/index.js --outfile=./dist/dictionary.esm.min.js",
+    "create_types": "npx -p typescript tsc --project my.tsconfig.types.json",
+    "remove_type_files": "del /q *.d.ts *.d.ts.map && cd dist && del /s /q *.d.ts *.d.ts.map && cd ../src && del /s /q *.d.ts *.d.ts.map && cd .."
+  },
+  "author": "Supercat",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@types/node": "^20.12.2",
+    "ava": "^6.1.2",
+    "c8": "^9.1.0"
+  },
+  "type": "module",
+  "moduleResolution": "nodenext",
+  "keywords": [
+    "dictionary",
+    "collection"
+    ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "homepage": "https://github.com/supercat1337/dictionary"
+}
