@@ -89,7 +89,7 @@ Returns an array of keys in the dictionary.
 
 Calls the given callback function for each value in the dictionary.
 
-### iterate(callback)
+### iterate(key, callback)
 
 Calls the given callback function for each value associated with a key in the dictionary.
 
